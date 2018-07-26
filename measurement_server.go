@@ -36,6 +36,7 @@ func sendTime(w http.ResponseWriter, r *http.Request) {
 	}
 	// get the current time
 	now := float64(time.Now().UnixNano()) / 1e9
+	log.Printf("Sending time %f", now)
 	// send to the client
 	nowString := strconv.FormatFloat(now, 'f', -1, 64)
 	w.Write([]byte(nowString))
