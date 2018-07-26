@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -73,7 +74,7 @@ func saveMeasurements(w http.ResponseWriter, r *http.Request) {
 	}
 	// get metadata
 	now := float64(time.Now().UnixNano()) / 1e9
-	ip := r.RemoteAddr
+	ip := strings.Split(r.RemoteAddr, ":")[0]
 	// save each measurement
 	log.Println("Saving", len(measurements), "measurements from", ip)
 	for _, measurement := range measurements {
