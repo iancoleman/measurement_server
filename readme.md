@@ -19,14 +19,15 @@ Saves a list of measurements. Body should be a json formatted string:
         "properties": [
             {
                 "key": "temperature",
-                "value": "15",
-                "type": "float",
-                "units": "degrees celcius"
+                "value": "15"
             },
             {
                 "key": "location",
-                "value": "livingroom",
-                "type": "string"
+                "value": "livingroom"
+            },
+            {
+                "key": "must always be a string",
+                "value": "must always be a string"
             },
             {
                 ... more properties ...
@@ -38,5 +39,3 @@ Saves a list of measurements. Body should be a json formatted string:
     }
 ]
 ```
-
-`type` can be `int`, `float`, `string`

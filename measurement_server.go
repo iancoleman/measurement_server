@@ -14,8 +14,6 @@ import (
 type Property struct {
 	Key   string `json:"key"`
 	Value string `json:"value"`
-	Type  string `json:"type"` // int float string
-	Units string `json:"units"`
 }
 
 type Measurement struct {
@@ -115,15 +113,11 @@ func saveMeasurements(w http.ResponseWriter, r *http.Request) {
 			INSERT INTO measurement_property (
 				measurement_id,
 				key,
-				value,
-				type,
-				units
-			) VALUES (?,?,?,?,?);`,
+				value
+			) VALUES (?,?,?);`,
 				measurementId,
 				property.Key,
-				property.Value,
-				property.Type,
-				property.Units)
+				property.Value)
 		}
 	}
 }

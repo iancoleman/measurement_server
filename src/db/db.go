@@ -48,9 +48,7 @@ func createTables() error {
 	_, err = WriteDb(`CREATE TABLE IF NOT EXISTS measurement_property (
 		measurement_id integer,
 		key text,
-		value text,
-		type text,
-		units text
+		value text
 	)`)
 	if err != nil {
 		panic(err)
