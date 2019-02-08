@@ -10,7 +10,7 @@ var db *sql.DB
 var ignoreInitDbConnError = initDbConn()
 var ignoreCreateTablesError = createTables()
 
-const dbFilename = "measurements.db"
+const dbFilename = "measurements.db?_busy_timeout=5000"
 
 var dbMutex = &sync.Mutex{}
 
