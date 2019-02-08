@@ -58,6 +58,10 @@ func createTables() error {
 	if err != nil {
 		panic(err)
 	}
+	_, err = WriteDb(`CREATE INDEX IF NOT EXISTS measurement_measured_unix_time ON measurement (measured_unix_time)`)
+	if err != nil {
+		panic(err)
+	}
 	_, err = WriteDb(`CREATE INDEX IF NOT EXISTS measurement_received_unix_time ON measurement (received_unix_time)`)
 	if err != nil {
 		panic(err)
